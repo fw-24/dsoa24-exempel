@@ -24,4 +24,17 @@ public class Bike extends Vehicle implements ShopFeatures {
         return price;
     }
 
+    public void setPrice(double price) {
+        try {
+            if (price <= 0) {
+                throw new IllegalArgumentException();
+            }
+            this.price = price;
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Priset måste vara positivt!");
+        }
+
+    }
+
 }
