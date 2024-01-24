@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Bike extends Vehicle implements ShopFeatures {
 
     private double price = 0;
@@ -8,6 +10,12 @@ public class Bike extends Vehicle implements ShopFeatures {
     public Bike(String name, double price) {
         super(name, "Pedaled");
         this.price = price;
+    }
+
+    // Static factory method
+    static Bike createExpensiveBike(String name) {
+        double price = (new Random()).nextInt(800, 1500);
+        return new Bike(name, price);
     }
 
     @Override

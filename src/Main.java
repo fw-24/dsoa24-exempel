@@ -8,7 +8,7 @@ public class Main {
 
         BikeShop shop = new BikeShop();
         shop.addBike(new Bike("Scott", 500));
-        shop.addBike(new Bike("Nishiki", Utils.getRandomPrice()));
+        shop.addBike(Bike.createExpensiveBike("Nishiki"));
         shop.addBike(new Bike("Jopo", Utils.getRandomPrice()));
 
         System.out.println("Välj cykel att köpa:");
