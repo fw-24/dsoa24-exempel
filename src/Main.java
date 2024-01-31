@@ -20,22 +20,16 @@ public class Main {
                     bike.getPrice());
         }
 
-        int chosenBike;
-        while (true) {
-            System.out.println("Vilken cykel vill du köpa?");
+        // Code Challenge: input
+        int chosenBike = Utils.getIntInput("Vilken cykel vill du köpa?");
+        System.out.printf("Grattis, du äger en %s", shop.getBikes().get(chosenBike).getName());
 
-            String userInput = strInput.nextLine();
+        // Code Challenge: input Overload-variant
+        System.out.println("----");
+        int myInt = Utils.getIntInput();
 
-            if (Utils.isInteger(userInput)) {
-                chosenBike = Integer.parseInt(userInput);
-                break;
-            }
-            System.out.println("Du måste ge ett tal!");
+        System.out.println("Du skrev: " + myInt);
 
-        }
-        System.out.printf("Grattis, du äger en %s",
-                shop.getBikes().get(chosenBike).getName());
-        //CCRandom.generate();
 
 
     }
