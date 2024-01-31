@@ -22,6 +22,11 @@ public class Main {
                     todaysRide.getName(),
                     tomorrowsRide.getName());
 
+            // Man kan skilja på objekten med en enkel if-sats vid behov
+            if (todaysRide == bike) {
+                System.out.println("Det var duktigt av dig!");
+            }
+
             // Själva swappen
             tempRide = todaysRide;
             todaysRide = tomorrowsRide;
