@@ -5,35 +5,13 @@ public class Main {
     public static void main(String[] args) {
 
 
-        /**
-         * Tips för att swappa mellan två objekt
-         */
-        Vehicle bike = new Bike("cykel");
-        Vehicle car = new Car("bil");
+        FileUtils.writeTextFile("Hellöu", "hello.txt");
 
-        Vehicle todaysRide = bike;
-        Vehicle tomorrowsRide = car;
-        Vehicle tempRide;
+        String fileContent = FileUtils.readTextFile("hello.txt");
 
-        // Vi byter fordon varje dag
-        for (int i = 1; i < 7; i++) {
-            System.out.println("-- Dag " + i);
-            System.out.printf("I dag åker jag %s, imorgon åker jag %s\n",
-                    todaysRide.getName(),
-                    tomorrowsRide.getName());
+        System.out.println(fileContent);
 
-            // Man kan skilja på objekten med en enkel if-sats vid behov
-            if (todaysRide == bike) {
-                System.out.println("Det var duktigt av dig!");
-            }
-
-            // Själva swappen
-            tempRide = todaysRide;
-            todaysRide = tomorrowsRide;
-            tomorrowsRide = tempRide;
-
-        }
-        /* objekt-swapping end */
+        System.exit(0);
 
 
         BikeShop shop = new BikeShop();
