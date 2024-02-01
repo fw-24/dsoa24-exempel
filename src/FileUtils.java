@@ -4,6 +4,42 @@ import java.nio.charset.StandardCharsets;
 public class FileUtils {
 
 
+    public Object loadObject(String fileName) {
+        Object returnObj = null;
+
+        try {
+
+            ObjectInputStream objInputStream = new ObjectInputStream(new FileInputStream(fileName));
+            returnObj = objInputStream.readObject();
+
+            objInputStream.close();
+
+        } catch (IOException e) {
+            System.out.println("Kunde inte läsa save-filen");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Save-filen är inte up-to-date");
+        }
+
+        return returnObj;
+
+    }
+
+    public static void saveObject(Object object, String fileName) {
+        try {
+            FileOutputStream outputStream = new FileOutputStream(fileName);
+            ObjectOutputStream objStream = new ObjectOutputStream(outputStream);
+
+            objStream.writeObject(object);
+            objStream.close();
+            outputStream.close();
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String readTextFile(String fileName) {
         StringBuilder returnString = new StringBuilder();
 

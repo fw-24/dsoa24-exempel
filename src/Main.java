@@ -6,18 +6,26 @@ public class Main {
 
 
         FileUtils.writeTextFile("Hellöu", "hello.txt");
-
         String fileContent = FileUtils.readTextFile("hello.txt");
-
         System.out.println(fileContent);
 
-        System.exit(0);
+        Customer customer = new Customer(1000);
+
+        if (customer.getCurrentBike() != null) {
+            System.out.printf("Din cykel är en %s, du har %.2f funds\n",
+                    customer.getCurrentBike().getName(),
+                    customer.getFunds());
+        } else {
+            System.out.println("Du har ingen cykel!");
+        }
 
 
         BikeShop shop = new BikeShop();
         shop.addBike(new Bike("Scott", 500));
         shop.addBike(Bike.createExpensiveBike("Nishiki"));
         shop.addBike(new Bike("Jopo", Utils.getRandomPrice()));
+
+
 
         System.out.println("Välj cykel att köpa:");
         for (int i = 0; i < shop.getBikes().size(); i++) {
@@ -29,14 +37,14 @@ public class Main {
         }
 
         // Code Challenge: input
-        int chosenBike = Utils.getIntInput("Vilken cykel vill du köpa?");
-        System.out.printf("Grattis, du äger en %s", shop.getBikes().get(chosenBike).getName());
+        Bike bikeToBuy = shop.chooseBike();
 
-        // Code Challenge: input Overload-variant
-        System.out.println("----");
-        int myInt = Utils.getIntInput();
+        customer.buyBike(bikeToBuy);
 
-        System.out.println("Du skrev: " + myInt);
+        System.out.printf("Du har en %s", customer.getCurrentBike().getName());
+
+        FileUtils.saveObject(customer, "customer.sav");
+
 
 
 

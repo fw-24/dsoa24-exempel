@@ -1,3 +1,6 @@
+## save files
+.sav
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
