@@ -4,13 +4,18 @@ import java.util.Random;
 public class Bike extends Vehicle implements ShopFeatures, Serializable {
 
     private double price = 0;
+    DiscountCategory discountCat;
 
-    public Bike(String name) {
-        super(name, "Pedaled");
-    }
+
     public Bike(String name, double price) {
         super(name, "Pedaled");
         this.price = price;
+        discountCat = DiscountCategory.NEW;
+    }
+    public Bike(String name, double price, DiscountCategory discountCat) {
+        super(name, "Pedaled");
+        this.price = price;
+        this.discountCat = discountCat;
     }
 
     // Static factory method
@@ -31,6 +36,27 @@ public class Bike extends Vehicle implements ShopFeatures, Serializable {
 
     public double getPrice() {
         return price;
+    }
+
+    public double getNetPrice() {
+        double netPrice;
+
+        switch (discountCat) {
+            case DEMO:
+                netPrice = price * 0.95;
+                break;
+            case RETURNED:
+                netPrice = price * 0.9;
+                break;
+            default:
+                netPrice = price;
+
+        }
+        return netPrice;
+    }
+
+    public DiscountCategory getDiscountCat() {
+        return discountCat;
     }
 
     public void setPrice(double price) {

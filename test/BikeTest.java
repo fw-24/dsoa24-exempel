@@ -6,7 +6,7 @@ class BikeTest {
 
     @Test
     void testInstantiateBike() {
-        Bike bike = new Bike("testbike");
+        Bike bike = new Bike("testbike", 100);
 
         assertEquals("testbike", bike.getName());
     }

@@ -9,11 +9,11 @@ public class Customer implements Serializable {
     }
 
     public void buyBike(Bike bike) {
-        if (funds < bike.getPrice()) {
+        if (funds < bike.getNetPrice()) {
             System.out.println("Du har inte råd med cykeln!");
             return;
         }
-        setFunds(funds - bike.getPrice());
+        setFunds(funds - bike.getNetPrice());
         currentBike = bike;
     }
 

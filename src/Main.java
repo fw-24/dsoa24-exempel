@@ -29,7 +29,8 @@ public class Main {
 
 
         BikeShop shop = new BikeShop();
-        shop.addBike(new Bike("Scott", 500));
+        shop.addBike(new Bike("Scott", 500, DiscountCategory.DEMO));
+        shop.addBike(new Bike("Rossin", 700, DiscountCategory.RETURNED));
         shop.addBike(Bike.createExpensiveBike("Nishiki"));
         shop.addBike(new Bike("Jopo", Utils.getRandomPrice()));
 
@@ -38,10 +39,11 @@ public class Main {
         System.out.println("Välj cykel att köpa:");
         for (int i = 0; i < shop.getBikes().size(); i++) {
             Bike b = shop.getBikes().get(i);
-            System.out.printf("[%d] %s kostar %.2f\n",
+            System.out.printf("[%d] %s kostar %.2f (%s)\n",
                     i,
                     b.getName(),
-                    b.getPrice());
+                    b.getNetPrice(),
+                    b.getDiscountCat());
         }
 
         // Code Challenge: input
