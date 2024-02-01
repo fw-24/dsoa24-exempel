@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets;
 public class FileUtils {
 
 
-    public Object loadObject(String fileName) {
+    public static Object loadObject(String fileName) {
         Object returnObj = null;
 
         try {
@@ -14,10 +14,9 @@ public class FileUtils {
 
             objInputStream.close();
 
-        } catch (IOException e) {
-            System.out.println("Kunde inte läsa save-filen");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Save-filen är inte up-to-date");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
         }
 
         return returnObj;

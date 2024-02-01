@@ -9,7 +9,15 @@ public class Main {
         String fileContent = FileUtils.readTextFile("hello.txt");
         System.out.println(fileContent);
 
-        Customer customer = new Customer(1000);
+        String saveFile = "customer.save";
+
+        Customer customer;
+        try {
+            customer = (Customer) FileUtils.loadObject(saveFile);
+        } catch (RuntimeException e) {
+            System.out.println("Ingen save-fil, skapar ny kund.");
+            customer = new Customer(1000);
+        }
 
         if (customer.getCurrentBike() != null) {
             System.out.printf("Din cykel är en %s, du har %.2f funds\n",
@@ -41,9 +49,11 @@ public class Main {
 
         customer.buyBike(bikeToBuy);
 
-        System.out.printf("Du har en %s", customer.getCurrentBike().getName());
+        System.out.printf("Du har nu en %s, du har %.2f funds kvar\n",
+                customer.getCurrentBike().getName(),
+                customer.getFunds());
 
-        FileUtils.saveObject(customer, "customer.sav");
+        FileUtils.saveObject(customer, saveFile);
 
 
 
