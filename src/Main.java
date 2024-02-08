@@ -13,6 +13,8 @@ public class Main {
         System.out.println(lotr);
         lotr.add(5, "Théoden");
         System.out.println(lotr);
+        lotr.reverse();
+        System.out.println(lotr);
 
         new BigO();
 
