@@ -7,6 +7,11 @@ public class Main {
 
         StringArray lotr = new StringArray(lotrCharacters);
 
+        Person sauron = new Person("Sauron");
+        Person gandalf = new Person("Gandalf");
+        Person theoden = new Person("Théoden");
+
+
         System.out.println("lotr size: " + lotr.size());
         System.out.println(lotr);
         lotr.add("Sauron");
