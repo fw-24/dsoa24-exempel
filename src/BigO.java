@@ -2,7 +2,7 @@
 public class BigO {
     public BigO() {
         //int[] data = { 1,3,56,3,5,3 };
-        int[] data = new int[1000]; // Array med 100 värden
+        int[] data = new int[100]; // Array med 100 värden
 
         /**
          * O(n)
