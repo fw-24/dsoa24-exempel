@@ -7,6 +7,8 @@ public class Utils {
      * Code Challenge: Good input, bad input
      * @return int
      */
+
+
     static int getIntInput(String prompt) {
         Scanner console = new Scanner(System.in);
         while (true) {
