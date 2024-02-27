@@ -14,6 +14,24 @@ public class Main {
         (new Sorty(lotrCharacters)).bubbleSort();
         (new Sorty(topNames)).bubbleSort();
 
+        (new Sorty(lotrCharacters)).insertionSort();
+        Sorty sorty = new Sorty(topNames);
+        sorty.insertionSort();
+        String[] sorted = sorty.getValues();
+        StringArray stringArray = new StringArray(sorted);
+        stringArray.reverse();
+        String[] reversed = stringArray.getValues();
+
+        // Sorting already sorted vs reversed
+        (new Sorty(sorted)).insertionSort();
+        (new Sorty(reversed)).insertionSort();
+
+        (new Sorty(sorted)).bubbleSort();
+        (new Sorty(reversed)).bubbleSort();
+
+
+
+
 
 
 

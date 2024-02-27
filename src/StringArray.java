@@ -50,6 +50,7 @@ public class StringArray {
         return values.length;
     }
 
-
-
+    public String[] getValues() {
+        return values;
+    }
 }
