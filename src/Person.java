@@ -1,4 +1,4 @@
-public class Person implements Comparable {
+public class Person implements Comparable<Person> {
     String name;
     int rank;
 
@@ -15,8 +15,13 @@ public class Person implements Comparable {
     }
 
     @Override
-    public int compareTo(Object o) {
-        return 0;
+    public int compareTo(Person otherPerson) {
+        //return rank - otherPerson.getRank();
+        return name.compareTo(otherPerson.getName());
+    }
+
+    private int getRank() {
+        return rank;
     }
 
     @Override

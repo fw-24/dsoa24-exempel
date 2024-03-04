@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -15,10 +13,13 @@ public class Main {
         ArrayList<Person> persons = new ArrayList<>();
 
         for (int i = 0; i < lotrCharacters.length; i++) {
-            persons.add(new Person(lotrCharacters[i], i));
+            persons.add(new Person(lotrCharacters[i], (new Random()).nextInt(1,100)));
         }
 
         System.out.println(persons);
+        Collections.sort(persons);
+        System.out.println(persons);
+
 
 
         System.exit(0);
