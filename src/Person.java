@@ -1,4 +1,4 @@
-public class Person {
+public class Person implements Comparable {
     String name;
     int rank;
 
@@ -12,5 +12,15 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + rank;
     }
 }
